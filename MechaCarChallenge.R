@@ -8,6 +8,9 @@ mpg_df <- read.csv(file='Resources/MechaCar_mpg.csv', check.names = F, stringsAs
 summary(lm(mpg~vehicle_length+vehicle_weight+spoiler_angle+ground_clearance+AWD,mpg_df)
 )
 
+# linear regression without less-significant vectors----------------------------
+summary(lm(mpg~vehicle_length+ground_clearance,mpg_df))
+
 # Import suspension csv ---------------------------------------------------
 suspension_coil <- read.csv(file = 'Resources/Suspension_Coil.csv', check.names = F, stringsAsFactors = F)
 
