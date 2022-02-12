@@ -25,18 +25,22 @@ The following analysis were performed:
 
 ### Results
 
-After importing our data, we perform a multiple linear regression summary using this code:
+The `MechaCar_mpg.csv` dataset contains mpg test results for 50 prototype MechaCars. The MechaCar prototypes were produced using multiple design specifications to identify ideal vehicle performance. Multiple metrics, such as `vehicle length`, `vehicle weight`, `spoiler angle`, `drivetrain`, and `ground clearance`, were collected for each vehicle. A linear model was designed to predicts the `mpg` of MechaCar prototypes using several variables from the `MechaCar_mpg.csv` file.
+
+After importing our data, a multiple linear regression model is performed using this code:
 
 ``` R
-summary(lm(mpg~vehicle_length+vehicle_weight+spoiler_angle+ground_clearance+AWD,mpg_df))
+lm(mpg~vehicle_length+vehicle_weight+spoiler_angle+ground_clearance+AWD,mpg_df)
 ```
 
 ![linear_Reg](Resources/linearReg2.png)
-
-The resulting p-values are shown under the `Pr(>|t|)` column, representing the probability of the coefficient contributing a random amount of variance to the linear model. 
-The row `Signif. codes:` shows recommended levels of significance to the test (i.e. vehicle_weight measured with significance level of 0.05, denoted with `(.)`). If the values are less than the measure of significance, then these variables are statistically unlikely to provide random amounts of variance to the linear model. `vehicle_weigh`, `spoiler_angle`, and `AWD` were removed due to statistical insignificance calculated by the model, to check for stronger correlation with `mpg`. 
+ 
+A summary of the regression model:
  
 ![linear_Reg2](Resources/linearReg.png)
+
+The resulting probabilities are shown under the `Pr(>|t|)` column, representing the probability of the coefficient contributing a random amount of variance to the linear model. 
+The row `Signif. codes:` shows recommended levels of significance to the test (i.e. vehicle_weight measured with significance level of 0.05, denoted with `(.)`). If the values are less than the measure of significance, then these variables are statistically unlikely to provide random amounts of variance to the linear model. 
 
 ### Summary 
 
@@ -63,7 +67,11 @@ lot_summary <- suspension_coil %>% group_by(Manufacturing_Lot)%>%
             SD = sd(PSI), .groups = "keep")
 ```
 
+Total Summary Statistics for Suspension Coils:
+
 ![total_summary](Resources/total_summary.png)
+
+Summary Statistics for Suspension Coils grouped by lots:
 
 ![summary_stats](Resources/lot_summary.png)
 
@@ -75,14 +83,53 @@ The design specifications for the MechaCar suspension coils dictate that the **v
 
 ### Results
 
+`t-tests` performed to determine if all manufacturing lots and each lot individually are statistically different from the population mean (mu, μ) of 1,500 pounds per square inch.
+
+t-test on the mean PSI of Suspension Coils for all lots compared to the population mean (mu, μ)
+
 ![ttest1](Resources/ttest_PSI.png)
+
+
+t-test on the mean PSI of Suspension Coils from Lot 1 compared to population mean (mu, μ)
 
 ![ttest2](Resources/ttest_PSI_lot1.png)
 
+
+t-test on the mean PSI of Suspension Coils from Lot 2 compared to population mean (mu, μ)
+
 ![ttest3](Resources/ttest_PSI_lot2.png)
+
+t-test on the mean PSI of Suspension Coils from Lot 3 compared to population mean (mu, μ)
 
 ![ttest4](Resources/ttest_PSI_lot3.png)
 
 ### Summary 
 
+The t-test for the mean PSI for all suspension coils and population mean of 1500 has a `p-value=0.06`.  With a confidence interval of 95%, this test does not provide sufficient evidence to show that the mean PSI of suspension coils from `all lots` is statistically different from the population mean. 
+
+The t-test for the mean PSI for suspension coils from `lot1` and population mean of 1500 has a `p-value=1`.  With a confidence interval of 95%, this test does not provide sufficient evidence to show that the mean PSI of suspension coils from `lot1` is statistically different from the population mean. 
+
+The t-test for the mean PSI for suspension coils from `lot2` and population mean of 1500 has a `p-value=0.6072`.  With a confidence interval of 95%, this test does not provide sufficient evidence to show that the mean PSI of suspension coils from `lot2` is statistically different from the population mean. 
+
+The t-test for the mean PSI for suspension coils from `lot3` and population mean of 1500 has a `p-value=0.04168`.  With a confidence interval of 95%, this test does provide sufficient evidence to show that the mean PSI of suspension coils from `lot3` is statistically different from the population mean.   
+
+## Study Design: MechaCar vs Competition
+
+### Overview
+
+Design a study to check for mean `maintenance costs` for MechaCars compared to the competition:
+
+### Hypothesis testing
+
+If the `safety rating` is related to `maintenance cost`, then 3.5* or higher rated cars will have an effect on mean `maintenance cost`.
+
+Null Hypothesis:
+
+If the `safety rating` is not related to `maintenance cost`, then 3.5* or higher rated cars will not have a lower mean `maintenance cost`.
+
+Alternative Hypothesis:
+
+If the `safety rating` is related to `maintenance cost`, then 3.5* or higher rated cars will have a lower mean `maintenance cost`.
+
+Although current data is not sufficient, collecting data on various other metrics can help design a one-sample t-test to check for averages between samples. Examples include, `horsepower`, `safety rating`, `vehicle weight`, `gearshaft`,`interior design`,`engine placement`, `number of cylinders`, etc.
 
