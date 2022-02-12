@@ -121,15 +121,15 @@ Design a study to check for mean `maintenance costs` for MechaCars compared to t
 
 ### Hypothesis testing
 
-If the `safety rating` is related to `maintenance cost`, then 3.5* or higher rated cars will have an effect on mean `maintenance cost`.
+If the `safety rating` is related to `maintenance cost`, then 3.5* or higher rated cars will have an effect on mean `maintenance cost` compared to the competitor.
 
 Null Hypothesis:
 
-If the `safety rating` is not related to `maintenance cost`, then 3.5* or higher rated cars will not have a lower mean `maintenance cost`.
+If the `safety rating` is not related to `maintenance cost`, then 3.5* or higher rated cars will not have a lower mean `maintenance cost` compared to the competitor.
 
 Alternative Hypothesis:
 
-If the `safety rating` is related to `maintenance cost`, then 3.5* or higher rated cars will have a lower mean `maintenance cost`.
+If the `safety rating` is related to `maintenance cost`, then 3.5* or higher rated cars will have a lower mean `maintenance cost` compared to the competitor.
 
 Although current data is not sufficient, collecting data on various other metrics can help design a one-sample t-test to check for averages between samples. Examples include, `horsepower`, `safety rating`, `vehicle weight`, `gearshaft`,`interior design`,`engine placement`, `number of cylinders`, etc.
 
